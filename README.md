@@ -1,3 +1,7 @@
-[![Live Dashboard](https://img.shields.io/badge/Live%20Dashboard-View%20on%20GitHub%20Pages-0A66C2?style=for-the-badge&logo=github)](https://arshadziban.github.io/healthOps/)
+<p align="center">
+  <a href="https://arshadziban.github.io/healthOps/">
+    <img src="case_study/live-dashboard-button.svg" alt="View Live Dashboard" width="300" />
+  </a>
+</p>
 
 ![HEALTHOPS analytics case study](case_study/healthops_analytics_case_study.png)
