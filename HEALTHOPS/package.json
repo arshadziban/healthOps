@@ -10,6 +10,8 @@
   },
   "scripts": {
     "serve": "http-server . -p 8080 -c-1 -o /src/taskpane/taskpane.html",
+    "build": "node build.js",
+    "serve:dist": "http-server dist -p 8080 -c-1 -o /healthops.html",
     "vendor": "node -e \"require('fs').copyFileSync('node_modules/chart.js/dist/chart.umd.js','src/assets/chart.umd.js')\"",
     "postinstall": "npm run vendor",
     "test": "node --test"
