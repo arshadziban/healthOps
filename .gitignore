@@ -1,0 +1,19 @@
+# Excel lock / temp files
+~$*
+*.tmp
+
+# Node
+node_modules/
+*.log
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.claude/
+
+
+# Data / workbooks
+Excel_Workbook/*
+!Excel_Workbook/Excel_Workbook.xlsx
+Raw_Data/

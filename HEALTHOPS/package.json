@@ -1,0 +1,23 @@
+{
+  "name": "healthops",
+  "version": "1.2.0",
+  "private": true,
+  "description": "HEALTHOPS - Healthcare Operations Analytics dashboard for Excel, opened in the browser by the OpenHealthOpsDashboard VBA macro",
+  "keywords": ["excel", "vba", "healthcare", "analytics", "dashboard", "power-query", "pivottable"],
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "serve": "http-server . -p 8080 -c-1 -o /src/taskpane/taskpane.html",
+    "vendor": "node -e \"require('fs').copyFileSync('node_modules/chart.js/dist/chart.umd.js','src/assets/chart.umd.js')\"",
+    "postinstall": "npm run vendor",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "chart.js": "^4.4.4"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

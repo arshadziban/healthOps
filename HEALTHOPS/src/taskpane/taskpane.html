@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="HEALTHOPS – Healthcare Operations Analytics dashboard" />
+  <title>HEALTHOPS</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/icon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/icon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/icon-16.png" />
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" />
+  <meta name="theme-color" content="#3ECF8E" />
+
+  <script type="text/javascript" src="../assets/chart.umd.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="taskpane.css" />
+</head>
+<body>
+  <div id="app-root">
+    <!-- SIDEBAR -->
+    <nav id="sidebar" aria-label="Dashboard sections">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">&#10010;</div>
+        <div class="brand-text">
+          <div class="brand-name">HEALTHOPS</div>
+          <div class="brand-sub">Healthcare Operations Analytics</div>
+        </div>
+      </div>
+
+      <div class="nav-group-label">Overview</div>
+      <ul class="nav-list">
+        <li><button class="nav-item is-active" data-view="executive" aria-current="page">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 21H10C6.70017 21 5.05025 21 4.02513 19.9749C3 18.9497 3 17.2998 3 14V3" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/><path d="M13 10L13 21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M18 13L18 21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M8 13L8 20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M21 7.98693C19.16 7.98693 17.1922 8.24252 15.8771 6.49346C14.3798 4.50218 11.6202 4.50218 10.1229 6.49346C8.80782 8.24252 6.84003 7.98693 5 7.98693H3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg>
+          <span>Executive Overview</span>
+        </button></li>
+      </ul>
+
+      <div class="nav-group-label">Analytics</div>
+      <ul class="nav-list">
+        <li><button class="nav-item" data-view="patient-flow">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M18.4995 20.5C18.2663 17.5685 15.8417 15.2477 12.808 15.0521L11.9995 15C11.7107 15.0076 11.4416 15.0178 11.1877 15.0298C8.18075 15.1723 5.7304 17.5974 5.49951 20.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M15.2495 9.25C15.2495 11.0449 13.7944 12.5 11.9995 12.5C10.2046 12.5 8.74952 11.0449 8.74952 9.25C8.74952 7.45507 10.2046 6 11.9995 6C13.7944 6 15.2495 7.45507 15.2495 9.25Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M5.50249 8.5C5.17908 7.99485 4.99158 7.39432 4.99158 6.75C4.99158 4.95507 6.44665 3.5 8.24157 3.5C8.68752 3.5 9.1125 3.58982 9.49939 3.75235" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M18.4963 8.5C18.8197 7.99485 19.0072 7.39432 19.0072 6.75C19.0072 4.95507 17.5521 3.5 15.7572 3.5C15.3113 3.5 14.8863 3.58982 14.4994 3.75235" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M22.0007 17.9996C21.8208 15.7374 19.9995 13.5 17.9995 13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M1.99927 17.9996C2.17923 15.7374 4.00049 13.5 6.00049 13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg>
+          <span>Patient Flow</span>
+        </button></li>
+        <li><button class="nav-item" data-view="hospital-ops">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 2V4M14 4V6M14 4H10M10 2V4M10 4V6" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/><path d="M3 22V11.3808C3 7.8766 3 6.12452 4.15327 5.03591C4.88623 4.34404 5.90312 4.09189 7.5 4M21 22V11.3808C21 7.8766 21 6.12452 19.8467 5.03591C19.1138 4.34404 18.0969 4.09189 16.5 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M14 10H16" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/><path d="M14 14H16" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/><path d="M7 14H9" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/><path d="M7 10H9" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/><path d="M2 22H9.5M22 22H14.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M9.5 22V19.5C9.5 18.5654 9.5 18.0981 9.70096 17.75C9.83261 17.522 10.022 17.3326 10.25 17.201C10.5981 17 11.0654 17 12 17C12.9346 17 13.4019 17 13.75 17.201C13.978 17.3326 14.1674 17.522 14.299 17.75C14.5 18.0981 14.5 18.5654 14.5 19.5V22" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/></svg>
+          <span>Hospital Operations</span>
+        </button></li>
+        <li><button class="nav-item" data-view="patient-experience">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M8 15C8.91212 16.2144 10.3643 17 12 17C13.6357 17 15.0879 16.2144 16 15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M15.625 8.387V8.91649M8.375 8.387V8.91649M8.75 8.75C8.75 8.33579 8.58211 8 8.375 8C8.16789 8 8 8.33579 8 8.75C8 9.16421 8.16789 9.5 8.375 9.5C8.58211 9.5 8.75 9.16421 8.75 8.75ZM16 8.75C16 8.33579 15.8321 8 15.625 8C15.4179 8 15.25 8.33579 15.25 8.75C15.25 9.16421 15.4179 9.5 15.625 9.5C15.8321 9.5 16 9.16421 16 8.75Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg>
+          <span>Patient Experience</span>
+        </button></li>
+        <li><button class="nav-item" data-view="clinical-insights">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13.0014 2C14.1053 2 15.0003 2.93126 15.0003 4.08003C15.0003 5.02915 15.0362 5.87375 14.2692 6.57196C11.7587 8.85732 10.5034 10 9.00027 10C7.49714 10 6.24187 8.85732 3.73133 6.57196C2.96426 5.87369 3.00027 5.029 3.00027 4.07981C3.00027 2.93116 3.8951 2 4.99893 2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M9 14V17.4998C9 19.9852 11.0149 22.0001 13.5003 22.0001C15.9858 22.0001 18.0007 19.9852 18.0007 17.4998V16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M14 7L12.6978 10.2556C12.3516 11.121 12.1785 11.5537 11.8887 11.9092C11.5988 12.2648 11.2098 12.5215 10.4319 13.0349L8.9696 14L7.53283 13.0323C6.77221 12.5201 6.39189 12.2639 6.10821 11.9126C5.82452 11.5613 5.65423 11.1356 5.31365 10.2841L4 7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M21 13C21 14.6569 19.6569 16 18 16C16.3431 16 15 14.6569 15 13C15 11.3431 16.3431 10 18 10C19.6569 10 21 11.3431 21 13Z" stroke="currentColor" stroke-width="1.5"/><path d="M18.125 13H18M18.25 13C18.25 13.1381 18.1381 13.25 18 13.25C17.8619 13.25 17.75 13.1381 17.75 13C17.75 12.8619 17.8619 12.75 18 12.75C18.1381 12.75 18.25 12.8619 18.25 13Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg>
+          <span>Clinical &amp; Demographics</span>
+        </button></li>
+      </ul>
+
+      <div class="sidebar-footer">
+        <div id="last-refreshed" class="last-refreshed">Not yet loaded</div>
+      </div>
+    </nav>
+
+    <!-- MAIN -->
+    <main id="main">
+      <header id="page-header">
+        <div class="page-heading">
+          <div class="page-eyebrow">Healthcare Operations Analytics</div>
+          <h1 id="page-title">Executive Overview</h1>
+          <p id="page-subtitle">Key insights and performance metrics across your healthcare operations</p>
+        </div>
+        <button id="refresh-btn" class="btn-refresh" type="button" title="Reload data from the workbook">
+          <svg class="icon-refresh" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.0092 2V5.13219C20.0092 5.42605 19.6418 5.55908 19.4537 5.33333C17.6226 3.2875 14.9617 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg>
+          <span>Refresh</span>
+        </button>
+      </header>
+
+      <div id="status-banner" class="status-banner" hidden></div>
+
+      <details id="data-quality" class="data-quality" hidden>
+        <summary><span class="dq-badge">!</span> <span id="data-quality-summary">Data model warnings</span></summary>
+        <ul id="data-quality-list"></ul>
+        <p class="dq-hint">Fix in Excel: <em>Data &rarr; Relationships</em> (or Power Pivot &rarr; Diagram View) and link the tables by their ID columns. See README &rarr; “Data Model relationships”.</p>
+      </details>
+
+      <!-- KPI ROW -->
+      <section id="kpi-row" class="kpi-row" aria-label="Key performance indicators"></section>
+
+      <!-- VIEW: Executive Overview -->
+      <section id="view-executive" class="view">
+        <div class="panel-grid panel-grid-3">
+          <div class="panel span-2">
+            <div class="panel-header"><div><h3>Department Performance</h3><p class="panel-sub">Appointments by department and status</p></div></div>
+            <div class="panel-body"><canvas id="chart-department" role="img" aria-label="Appointments by department and status"></canvas></div>
+          </div>
+          <div class="panel">
+            <div class="panel-header"><div><h3>Appointment Pipeline</h3><p class="panel-sub">Appointment status distribution</p></div></div>
+            <div class="panel-body panel-body-donut">
+              <canvas id="chart-appointment-status" role="img" aria-label="Appointment status distribution"></canvas>
+              <div class="donut-center" id="appointment-donut-center"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-grid panel-grid-2">
+          <div class="panel">
+            <div class="panel-header"><div><h3>Bed Command Center</h3><p class="panel-sub">Current bed status</p></div></div>
+            <div class="panel-body panel-body-split">
+              <div class="panel-body-donut">
+                <canvas id="chart-bed-status" role="img" aria-label="Bed status"></canvas>
+                <div class="donut-center" id="bed-donut-center"></div>
+              </div>
+              <div class="occupancy-card">
+                <div class="occupancy-label">Occupancy Rate</div>
+                <div class="occupancy-value" id="occupancy-rate-value">&mdash;</div>
+                <div class="occupancy-meter"><span id="occupancy-meter-fill"></span></div>
+              </div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-header"><div><h3>Key Insights</h3><p class="panel-sub">Generated from the current PivotTable values</p></div></div>
+            <div class="panel-body panel-body-auto">
+              <ul id="key-insights-list" class="insights-list"></ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-grid panel-grid-3">
+          <div class="panel">
+            <div class="panel-header"><div><h3>Doctor Workload</h3><p class="panel-sub">Top 10 doctors by visit volume</p></div></div>
+            <div class="panel-body panel-body-tall"><canvas id="chart-doctor-workload" role="img" aria-label="Top 10 doctors by visit volume"></canvas></div>
+          </div>
+          <div class="panel">
+            <div class="panel-header"><div><h3>Waiting Time</h3><p class="panel-sub" id="waiting-sub-exec">Average wait vs consultation (minutes)</p></div></div>
+            <div class="panel-body panel-body-tall"><canvas id="chart-waiting-time" role="img" aria-label="Average waiting time versus consultation duration"></canvas></div>
+          </div>
+          <div class="panel">
+            <div class="panel-header"><div><h3>Patient Experience</h3><p class="panel-sub">Satisfaction scores (out of 5)</p></div></div>
+            <div class="panel-body panel-body-tall"><canvas id="chart-satisfaction" role="img" aria-label="Satisfaction scores"></canvas></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW: Patient Flow -->
+      <section id="view-patient-flow" class="view" hidden>
+        <div class="panel-grid panel-grid-3">
+          <div class="panel">
+            <div class="panel-header"><div><h3>Patient Type</h3><p class="panel-sub">Inpatient vs outpatient</p></div></div>
+            <div class="panel-body panel-body-donut">
+              <canvas id="chart-patient-type" role="img" aria-label="Patient type"></canvas>
+              <div class="donut-center" id="patient-type-donut-center"></div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-header"><div><h3>Visit Type</h3><p class="panel-sub">Distribution of visit types</p></div></div>
+            <div class="panel-body panel-body-donut">
+              <canvas id="chart-visit-type" role="img" aria-label="Visit type"></canvas>
+              <div class="donut-center" id="visit-type-donut-center"></div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-header"><div><h3>Patient Demographics</h3><p class="panel-sub">Gender split</p></div></div>
+            <div class="panel-body panel-body-donut">
+              <canvas id="chart-demographics-pf" role="img" aria-label="Gender split"></canvas>
+              <div class="donut-center" id="demographics-donut-center"></div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-grid panel-grid-2">
+          <div class="panel">
+            <div class="panel-header"><div><h3>Booking Channel</h3><p class="panel-sub">Appointments by channel</p></div></div>
+            <div class="panel-body"><canvas id="chart-booking-channel-pf" role="img" aria-label="Appointments by booking channel"></canvas></div>
+          </div>
+          <div class="panel">
+            <div class="panel-header"><div><h3>Patients by City</h3><p class="panel-sub">Geographic distribution</p></div></div>
+            <div class="panel-body panel-body-tall"><canvas id="chart-city-pf" role="img" aria-label="Patients by city"></canvas></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW: Hospital Operations -->
+      <section id="view-hospital-ops" class="view" hidden>
+        <div class="panel-grid panel-grid-2">
+          <div class="panel">
+            <div class="panel-header"><div><h3>Admissions by Type</h3><p class="panel-sub">Emergency / scheduled / transfer by department</p></div></div>
+            <div class="panel-body panel-body-tall"><canvas id="chart-admissions-ho" role="img" aria-label="Admissions by type and department"></canvas></div>
+          </div>
+          <div class="panel">
+            <div class="panel-header"><div><h3>Average Length of Stay</h3><p class="panel-sub">Days per admission, by department</p></div></div>
+            <div class="panel-body panel-body-tall"><canvas id="chart-los-ho" role="img" aria-label="Average length of stay by department"></canvas></div>
+          </div>
+        </div>
+        <div class="panel-grid panel-grid-2">
+          <div class="panel">
+            <div class="panel-header"><div><h3>Bed Status by Department</h3><p class="panel-sub" id="bed-sub-ho">Occupied / available / maintenance</p></div></div>
+            <div class="panel-body panel-body-tall"><canvas id="chart-bed-ho" role="img" aria-label="Bed status by department"></canvas></div>
+          </div>
+          <div class="panel">
+            <div class="panel-header"><div><h3>Doctor Workload</h3><p class="panel-sub">Top 10 doctors by visit volume</p></div></div>
+            <div class="panel-body panel-body-tall"><canvas id="chart-doctor-ho" role="img" aria-label="Top 10 doctors by visit volume"></canvas></div>
+          </div>
+        </div>
+        <div class="panel-grid panel-grid-1">
+          <div class="panel">
+            <div class="panel-header"><div><h3>Department Summary</h3><p class="panel-sub">Appointments, completion, admissions and length of stay</p></div></div>
+            <div class="panel-body-auto table-wrap"><table id="dept-table" class="data-table"></table></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW: Patient Experience -->
+      <section id="view-patient-experience" class="view" hidden>
+        <div class="panel-grid panel-grid-2">
+          <div class="panel">
+            <div class="panel-header"><div><h3>Patient Satisfaction</h3><p class="panel-sub" id="satisfaction-sub-pe">Satisfaction scores (out of 5)</p></div></div>
+            <div class="panel-body panel-body-tall"><canvas id="chart-satisfaction-pe" role="img" aria-label="Satisfaction scores"></canvas></div>
+          </div>
+          <div class="panel">
+            <div class="panel-header"><div><h3>Waiting Time</h3><p class="panel-sub" id="waiting-sub-pe">Average wait vs consultation (minutes)</p></div></div>
+            <div class="panel-body panel-body-tall"><canvas id="chart-waiting-pe" role="img" aria-label="Average waiting time versus consultation duration"></canvas></div>
+          </div>
+        </div>
+        <div class="panel-grid panel-grid-1">
+          <div class="panel">
+            <div class="panel-header"><div><h3>Appointment Reliability</h3><p class="panel-sub">No-show and cancellation rate by department</p></div></div>
+            <div class="panel-body"><canvas id="chart-reliability-pe" role="img" aria-label="No-show and cancellation rate by department"></canvas></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW: Clinical & Demographic Insights -->
+      <section id="view-clinical-insights" class="view" hidden>
+        <div class="panel-grid panel-grid-3">
+          <div class="panel">
+            <div class="panel-header"><div><h3>Diagnosis</h3><p class="panel-sub">Visits by diagnosis category</p></div></div>
+            <div class="panel-body panel-body-tall"><canvas id="chart-diagnosis-ci" role="img" aria-label="Visits by diagnosis category"></canvas></div>
+          </div>
+          <div class="panel">
+            <div class="panel-header"><div><h3>Treatment Status</h3><p class="panel-sub">Visit outcomes</p></div></div>
+            <div class="panel-body panel-body-donut">
+              <canvas id="chart-treatment-ci" role="img" aria-label="Treatment status"></canvas>
+              <div class="donut-center" id="treatment-donut-center"></div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-header"><div><h3>Discharge Status</h3><p class="panel-sub">Admission outcomes</p></div></div>
+            <div class="panel-body panel-body-donut">
+              <canvas id="chart-discharge-ci" role="img" aria-label="Discharge status"></canvas>
+              <div class="donut-center" id="discharge-donut-center"></div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-grid panel-grid-2">
+          <div class="panel">
+            <div class="panel-header"><div><h3>Insurance</h3><p class="panel-sub">Patients by insurance type</p></div></div>
+            <div class="panel-body"><canvas id="chart-insurance-ci" role="img" aria-label="Patients by insurance type"></canvas></div>
+          </div>
+          <div class="panel">
+            <div class="panel-header"><div><h3>Average Age by Gender</h3><p class="panel-sub">Years, across all cities</p></div></div>
+            <div class="panel-body"><canvas id="chart-age-ci" role="img" aria-label="Average age by gender"></canvas></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="text/javascript" src="data.js" data-healthops-data></script>
+  <script type="text/javascript" src="../js/utils.js"></script>
+  <script type="text/javascript" src="../js/excel.js"></script>
+  <script type="text/javascript" src="../js/pivots.js"></script>
+  <script type="text/javascript" src="../js/dashboard.js"></script>
+  <script type="text/javascript" src="../js/charts.js"></script>
+  <script type="text/javascript" src="../js/navigation.js"></script>
+  <script type="text/javascript" src="taskpane.js"></script>
+</body>
+</html>
